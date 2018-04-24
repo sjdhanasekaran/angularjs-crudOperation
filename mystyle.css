@@ -1,0 +1,48 @@
+.dsbtn{
+	   
+			margin-left:30px;
+			transition: .4s ease-out;
+			padding: 10px 40px;
+			    border: 3px solid black !important;
+			    color: white;
+			}
+			.fa-plus{
+				margin-left:20px;			
+			}
+			.fa-close{
+				float:right !important;
+				color:red;
+				font-size:20px;
+				
+			}
+			.fa-binoculars{
+				margin-left:18px;			
+			}
+.mg-cen{
+    padding-top: 330px;
+}
+.dsbtn:hover{
+    background-color: #18acc3;
+	 padding: 10px 90px;
+	 box-shadow: 3px -1px 17px 2px #0d2d5f;
+}
+.dsbtn:hover .fa-plus{
+	color: #9a18c3;
+}
+.dsbtn:hover .fa-binoculars{
+	color:#c33918;
+}
+.im{
+width:99%;
+height:793px !important;
+border-radius:20px;
+}
+.hover-slide {
+    position: absolute;
+    z-index: 10;
+}
+
+a:hover{
+	text-decoration:none ;
+	color:green;
+}

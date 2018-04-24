@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html >
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="script.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body ng-app="myApp" 
+        
+        ng-init="list=[{ name:'dhana', email:'email@email.com',age:50 }, 
+            { name:'sekaran',email:'email@email.com',age:22 }]"
+        ng-controller="myController">
+<div class="col-md-6 offset-3 mg-cen hover-slide text-center">
+          <button type="button" class="btn btn-lg btn-success dsbtn animated flip" data-toggle="modal" data-target="#exampleModal"> Add <span class="fa fa-plus"></span></button>
+		  <button type="button" class="btn btn-lg btn-warning  dsbtn animated fadeInDownBig" data-toggle="modal" data-target="#exampleModalCenter"> View <span class="fa fa-binoculars"></span> </button>
+    </div>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+  <div class="carousel-inner">
+    <div class="carousel-item active" >
+      <img class="d-block im" src="w.jpg" >
+    </div>
+    <div class="carousel-item">
+      <img class="d-block im" src="w1.png">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block im" src="w2.png">
+    </div>
+	<div class="carousel-item">
+      <img class="d-block im" src="w3.jpg" >
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add New Detail To The List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    <form>
+    <div class="form-group row">
+    <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" ng-model="name" class="form-control" id="inputName3" required>
+    </div>
+</div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" ng-model="email" class="form-control" id="inputEmail3" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Age</label>
+    <div class="col-sm-10">
+      <input type="number" ng-model="age" class="form-control" id="inputAge3" required>
+    </div>
+  </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit"  ng-click="add()" class="btn btn-success" value="Add">
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-center" id="exampleModalLongTitle">Details</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ <table class="table table-striped text-center">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody  ng-repeat="names in list" >
+    <tr>
+  <td>{{ names.name}}</td>
+   <td>{{names.email}}</td>
+  <td>{{names.age}}</td>
+    <td ng-click="Delete($index,names)" class="fa fa-close"></td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+    </div>
+	
+	
+	
+</body>
+
+</html>
+
